@@ -12,26 +12,22 @@
   --bg: #0a0a0a;
   --surface: #131313;
   --surface-2: #1a1a1a;
-  --surface-3: #222222;
   --line: #2a2a2a;
   --line-soft: #1f1f1f;
   --ink: #ececec;
   --ink-dim: #8a8a8a;
   --ink-soft: #555555;
-
   --orange: #f59e0b;
   --orange-2: #ff6b35;
   --yellow: #fbbf24;
   --yellow-light: #fde047;
   --amber: #d97706;
+  --blue: #3b82f6;
   --red: #dc2626;
-  --orange-soft: rgba(245, 158, 11, 0.12);
-  --orange-soft-2: rgba(255, 107, 53, 0.12);
 }
 * { box-sizing: border-box; margin:0; padding:0; }
 html, body {
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--bg); color: var(--ink);
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   font-feature-settings: 'tnum';
 }
@@ -41,10 +37,8 @@ body {
     radial-gradient(at 85% 100%, rgba(255,107,53,0.04) 0px, transparent 55%);
   min-height: 100vh;
 }
-
 .container { max-width: 1440px; margin: 0 auto; padding: 48px 56px 80px; }
 
-/* Header */
 .header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
 .header-left .eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; font-weight: 500; }
 .header-left h1 { font-size: 36px; font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--ink); }
@@ -54,7 +48,6 @@ body {
 .header-right .period { color: var(--ink); font-size: 13px; font-weight: 500; }
 .header-right .days { color: var(--orange); font-weight: 700; }
 
-/* KPI strip */
 .kpi-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 56px; }
 .kpi { background: var(--surface); padding: 22px 22px; transition: background 0.2s; }
 .kpi:hover { background: var(--surface-2); }
@@ -63,7 +56,6 @@ body {
 .kpi-value .unit { font-size: 13px; color: var(--ink-dim); margin-left: 4px; font-weight: 400; }
 .kpi-sub { font-size: 11px; color: var(--ink-soft); margin-top: 8px; letter-spacing: 0.05em; }
 
-/* Section */
 .section { margin-bottom: 56px; }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); }
 .section-num { font-size: 11px; color: var(--orange); letter-spacing: 0.15em; font-weight: 700; }
@@ -82,16 +74,14 @@ body {
 .chart-wrap { position: relative; height: 320px; }
 .chart-wrap-tall { position: relative; height: 480px; }
 .chart-wrap-mega { position: relative; height: 760px; }
-.chart-wrap-daily { position: relative; height: 420px; }
+.chart-wrap-daily { position: relative; height: 460px; }
 
-/* Insight box */
 .insight { background: var(--surface-2); border-left: 3px solid var(--orange); padding: 22px 26px; margin-top: 18px; }
 .insight-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; font-weight: 700; }
 .insight-body { font-size: 14px; line-height: 1.75; color: var(--ink); font-weight: 400; }
 .insight-body strong { color: var(--orange); font-weight: 700; }
 .insight-body .neg { color: var(--orange-2); font-weight: 700; }
 
-/* Stats */
 .stats { display: grid; grid-template-columns: 1fr; gap: 0; }
 .stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed var(--line-soft); }
 .stat-row:last-child { border-bottom: none; }
@@ -99,14 +89,12 @@ body {
 .stat-val { font-size: 13px; color: var(--ink); font-weight: 600; }
 .stat-val .pct { color: var(--orange); margin-left: 8px; font-weight: 700; }
 
-/* Region grid cells */
 .region-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .region-cell { background: var(--surface); padding: 16px 18px; }
 .region-name { font-size: 12px; color: var(--ink-dim); margin-bottom: 6px; letter-spacing: 0.04em; }
 .region-val { font-size: 16px; color: var(--ink); font-weight: 700; }
 .region-share { font-size: 11px; color: var(--orange); margin-top: 4px; font-weight: 600; }
 
-/* Daily KPI mini-strip */
 .daily-mini { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 16px; }
 .daily-mini-cell { background: var(--surface-2); padding: 14px 16px; }
 .daily-mini-label { font-size: 10px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; font-weight: 600; }
@@ -115,7 +103,6 @@ body {
 .daily-mini-val.up { color: var(--orange); }
 .daily-mini-val.down { color: var(--orange-2); }
 
-/* Exec summary */
 .exec-summary { background: linear-gradient(180deg, rgba(245,158,11,0.04), transparent); border: 1px solid var(--line); padding: 40px; margin-top: 64px; position: relative; }
 .exec-summary::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--orange), var(--orange-2), transparent); }
 .exec-summary h2 { font-size: 26px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.015em; }
@@ -158,50 +145,29 @@ body {
 
   <div class="kpi-strip" id="kpiStrip"></div>
 
-  <!-- Section 0: DAILY combo chart -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">00</div>
-      <div class="section-title">일자별 매출 추이 · 주문건수 · 활성거래처</div>
-      <div class="section-tag">Daily Combo Trend</div>
-    </div>
+    <div class="section-head"><div class="section-num">00</div><div class="section-title">일자별 매출 추이 · 주문건수 · 활성거래처</div><div class="section-tag">Daily Combo + Trendline</div></div>
     <div class="card">
-      <div class="card-title">일별 매출(막대) + 주문건수·활성거래처(꺾은선) — 통합 추이</div>
+      <div class="card-title">일별 매출(막대) + 주문건수·활성거래처(꺾은선) + 7일 이동평균 추세선</div>
       <div class="card-headline" id="dailyHead"></div>
       <div class="chart-wrap-daily"><canvas id="dailyChart"></canvas></div>
       <div class="daily-mini" id="dailyMini"></div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Daily Pulse</div>
-      <div class="insight-body" id="insight0"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Daily Pulse</div><div class="insight-body" id="insight0"></div></div>
   </div>
 
-  <!-- Section 1: Weekly -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">01</div>
-      <div class="section-title">주차별 매출 추이</div>
-      <div class="section-tag">Weekly Revenue Trend</div>
-    </div>
+    <div class="section-head"><div class="section-num">01</div><div class="section-title">주차별 매출 추이</div><div class="section-tag">Weekly Revenue Trend</div></div>
     <div class="card">
       <div class="card-title">주(週) 단위 매출 합계 — 단위: 원</div>
       <div class="card-headline">총 <span class="hl" id="wkTotal"></span>원 · <span id="wkAvg"></span>원/주 평균</div>
       <div class="chart-wrap-tall"><canvas id="weeklyChart"></canvas></div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note</div>
-      <div class="insight-body" id="insight1"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note</div><div class="insight-body" id="insight1"></div></div>
   </div>
 
-  <!-- Section 2: Franchise -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">02</div>
-      <div class="section-title">프랜차이즈별 매출 현황</div>
-      <div class="section-tag">Franchise Revenue · Top 15</div>
-    </div>
+    <div class="section-head"><div class="section-num">02</div><div class="section-title">프랜차이즈별 매출 현황</div><div class="section-tag">Franchise Revenue · Top 15</div></div>
     <div class="grid-3b">
       <div class="card">
         <div class="card-title">집중도 지표</div>
@@ -219,22 +185,14 @@ body {
         <div class="chart-wrap-tall"><canvas id="franchiseChart"></canvas></div>
       </div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Concentration Risk</div>
-      <div class="insight-body" id="insight2"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Concentration Risk</div><div class="insight-body" id="insight2"></div></div>
   </div>
 
-  <!-- Section 3: Platform -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">03</div>
-      <div class="section-title">플랫폼별 매출 비중 및 성장 스케일</div>
-      <div class="section-tag">Platform Mix · Foodcook vs Brandcook</div>
-    </div>
+    <div class="section-head"><div class="section-num">03</div><div class="section-title">플랫폼별 매출 비중 및 성장 스케일</div><div class="section-tag">Platform Mix · Yellow vs Blue</div></div>
     <div class="grid-2">
       <div class="card">
-        <div class="card-title">전체 매출 비중</div>
+        <div class="card-title">전체 매출 비중 · 브랜드쿡(노랑) vs 식자재쿡(블루)</div>
         <div class="card-headline">브랜드쿡이 압도적 주력</div>
         <div class="chart-wrap"><canvas id="platformDonut"></canvas></div>
       </div>
@@ -244,19 +202,11 @@ body {
         <div class="chart-wrap"><canvas id="platformMonthly"></canvas></div>
       </div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Platform Strategy</div>
-      <div class="insight-body" id="insight3"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Platform Strategy</div><div class="insight-body" id="insight3"></div></div>
   </div>
 
-  <!-- Section 4: 초인 -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">04</div>
-      <div class="section-title">초인 vs 식자재쿡(장한유통) 매출 척도</div>
-      <div class="section-tag">Choin Channel Analysis</div>
-    </div>
+    <div class="section-head"><div class="section-num">04</div><div class="section-title">초인 vs 식자재쿡(장한유통) 매출 척도</div><div class="section-tag">Choin Channel Analysis</div></div>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">전체 매출 비중</div>
@@ -269,55 +219,31 @@ body {
         <div class="chart-wrap"><canvas id="choinMonthly"></canvas></div>
       </div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Channel Divergence</div>
-      <div class="insight-body" id="insight4"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Channel Divergence</div><div class="insight-body" id="insight4"></div></div>
   </div>
 
-  <!-- Section 5: TOP 30 by Qty -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">05</div>
-      <div class="section-title">최다 판매 상품 (수량 기준)</div>
-      <div class="section-tag">Top 30 Products by Quantity</div>
-    </div>
+    <div class="section-head"><div class="section-num">05</div><div class="section-title">최다 판매 상품 (수량 기준)</div><div class="section-tag">Top 30 Products by Quantity</div></div>
     <div class="card">
       <div class="card-title">판매수량 기준 TOP 30</div>
       <div class="card-headline" id="qtyHead"></div>
       <div class="chart-wrap-mega"><canvas id="qtyChart"></canvas></div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Volume Drivers</div>
-      <div class="insight-body" id="insight5"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Volume Drivers</div><div class="insight-body" id="insight5"></div></div>
   </div>
 
-  <!-- Section 6: TOP 30 by Revenue -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">06</div>
-      <div class="section-title">최고 매출 상품 (금액 기준)</div>
-      <div class="section-tag">Top 30 Products by Revenue</div>
-    </div>
+    <div class="section-head"><div class="section-num">06</div><div class="section-title">최고 매출 상품 (금액 기준)</div><div class="section-tag">Top 30 Products by Revenue</div></div>
     <div class="card">
       <div class="card-title">매출액 기준 TOP 30</div>
       <div class="card-headline" id="revHead"></div>
       <div class="chart-wrap-mega"><canvas id="revChart"></canvas></div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Profit Anchors</div>
-      <div class="insight-body" id="insight6"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Profit Anchors</div><div class="insight-body" id="insight6"></div></div>
   </div>
 
-  <!-- Section 7: Region -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-num">07</div>
-      <div class="section-title">지역별 매출 분포 (시·도 / 시·군·구)</div>
-      <div class="section-tag">Regional Distribution</div>
-    </div>
+    <div class="section-head"><div class="section-num">07</div><div class="section-title">지역별 매출 분포 (시·도 / 시·군·구)</div><div class="section-tag">Regional Distribution</div></div>
     <div class="grid-region" style="margin-bottom: 20px;">
       <div class="card">
         <div class="card-title">시·도 매출 비중</div>
@@ -340,13 +266,9 @@ body {
       <div class="card-headline">동남권 핵심 거점</div>
       <div class="region-grid" id="regionGrid"></div>
     </div>
-    <div class="insight">
-      <div class="insight-title">CSO Note · Geographic Concentration</div>
-      <div class="insight-body" id="insight7"></div>
-    </div>
+    <div class="insight"><div class="insight-title">CSO Note · Geographic Concentration</div><div class="insight-body" id="insight7"></div></div>
   </div>
 
-  <!-- Executive Summary -->
   <div class="exec-summary">
     <h2>Executive Summary</h2>
     <div class="exec-sub">CSO 관점 핵심 인사이트 · Strategic Takeaways</div>
@@ -390,7 +312,7 @@ body {
 
 <script>
 const D = {"summary": {"total_rev": 4586024149.0, "total_orders": 28813, "total_items": 137400, "avg_order": 159165.10425849442, "n_franchise": 124, "n_branch": 985, "period": "2026-01-01 ~ 2026-04-28", "days": 118}, "daily": {"labels": ["01/01", "01/02", "01/03", "01/04", "01/05", "01/06", "01/07", "01/08", "01/09", "01/10", "01/11", "01/12", "01/13", "01/14", "01/15", "01/16", "01/17", "01/18", "01/19", "01/20", "01/21", "01/22", "01/23", "01/24", "01/25", "01/26", "01/27", "01/28", "01/29", "01/30", "01/31", "02/01", "02/02", "02/03", "02/04", "02/05", "02/06", "02/07", "02/08", "02/09", "02/10", "02/11", "02/12", "02/13", "02/14", "02/15", "02/16", "02/17", "02/18", "02/19", "02/20", "02/21", "02/22", "02/23", "02/24", "02/25", "02/26", "02/27", "02/28", "03/01", "03/02", "03/03", "03/04", "03/05", "03/06", "03/07", "03/08", "03/09", "03/10", "03/11", "03/12", "03/13", "03/14", "03/15", "03/16", "03/17", "03/18", "03/19", "03/20", "03/21", "03/22", "03/23", "03/24", "03/25", "03/26", "03/27", "03/28", "03/29", "03/30", "03/31", "04/01", "04/02", "04/03", "04/04", "04/05", "04/06", "04/07", "04/08", "04/09", "04/10", "04/11", "04/12", "04/13", "04/14", "04/15", "04/16", "04/17", "04/18", "04/19", "04/20", "04/21", "04/22", "04/23", "04/24", "04/25", "04/26", "04/27", "04/28"], "full_dates": ["2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10", "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-17", "2026-01-18", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-24", "2026-01-25", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-01-31", "2026-02-01", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-14", "2026-02-15", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-22", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-02-28", "2026-03-01", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10", "2026-03-11", "2026-03-12", "2026-03-13", "2026-03-14", "2026-03-15", "2026-03-16", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-20", "2026-03-21", "2026-03-22", "2026-03-23", "2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04", "2026-04-05", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-12", "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17", "2026-04-18", "2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-25", "2026-04-26", "2026-04-27", "2026-04-28"], "revenue": [58792350.0, 55580117.0, 4983550.0, 47031866.0, 33775974.0, 46607625.0, 32523612.0, 55667403.0, 48296301.0, 2977670.0, 40450397.0, 34957605.0, 40104066.0, 41427671.0, 56848822.0, 47993206.0, 4082060.0, 41298194.0, 38677002.0, 46355416.0, 38990355.0, 60126884.0, 50570017.0, 3971430.0, 44341441.0, 37575360.0, 35685027.0, 39545543.0, 58135334.0, 49160894.0, 2223690.0, 44399300.0, 32457769.0, 48621276.0, 39804247.0, 62833163.0, 48450040.0, 5112141.0, 49810722.0, 40898531.0, 61812442.0, 71580553.0, 105319130.0, 85133034.0, 4077120.0, 35580.0, 2392001.0, 11972942.0, 30354479.0, 48451846.0, 55161216.0, 5041800.0, 40203171.0, 35036300.0, 35796973.0, 44013359.0, 64364687.0, 60713781.0, 3057870.0, 3032710.0, 43969644.0, 37652117.0, 31694391.0, 58130416.0, 50741550.0, 5307800.0, 38118764.0, 33115659.0, 30402220.0, 36372797.0, 60081001.0, 48770301.0, 5132960.0, 38221205.0, 35978081.0, 36235724.0, 38695349.0, 58651199.0, 48308269.0, 4776220.0, 45138010.0, 30729644.0, 41800783.0, 40550101.0, 63605731.0, 52784398.0, 3938150.0, 40843329.0, 37689813.0, 35966905.0, 43282992.0, 63713379.0, 50379364.0, 2464750.0, 41756582.0, 35112514.0, 33875176.0, 42266836.0, 60580875.0, 54581031.0, 3575090.0, 38462466.0, 41437957.0, 37415427.0, 38176815.0, 56711424.0, 50007086.0, 4020100.0, 43867945.0, 40235115.0, 39573546.0, 42086667.0, 64891694.0, 61889078.0, 3248090.0, 40320925.0, 41395021.0, 38598608.0], "orders": [264, 375, 27, 267, 235, 268, 235, 306, 321, 19, 257, 239, 273, 263, 324, 324, 20, 254, 259, 283, 261, 342, 309, 23, 259, 255, 251, 289, 317, 286, 24, 269, 242, 303, 273, 325, 326, 31, 260, 251, 307, 321, 415, 346, 14, 2, 7, 49, 181, 239, 385, 30, 272, 249, 246, 289, 328, 330, 18, 31, 292, 243, 267, 329, 333, 33, 253, 260, 249, 265, 322, 322, 25, 249, 284, 272, 287, 327, 309, 35, 287, 256, 280, 286, 363, 334, 32, 278, 275, 273, 324, 370, 337, 27, 272, 270, 277, 280, 327, 359, 31, 278, 293, 257, 287, 355, 328, 29, 272, 300, 315, 294, 359, 351, 27, 286, 302, 218], "branches": [220, 306, 26, 224, 215, 239, 205, 262, 260, 17, 217, 207, 237, 227, 265, 277, 20, 211, 223, 248, 231, 292, 266, 21, 224, 217, 219, 239, 271, 249, 22, 227, 216, 264, 233, 271, 281, 29, 224, 222, 272, 261, 339, 260, 14, 1, 7, 42, 160, 211, 311, 27, 225, 224, 216, 246, 285, 274, 16, 30, 253, 200, 231, 281, 284, 29, 222, 227, 216, 234, 284, 264, 25, 222, 245, 250, 254, 281, 255, 34, 246, 228, 250, 245, 308, 278, 29, 238, 237, 241, 271, 310, 284, 25, 234, 235, 235, 244, 289, 304, 31, 241, 254, 229, 252, 301, 280, 28, 237, 261, 266, 250, 309, 298, 24, 246, 261, 195]}, "weekly": {"labels": ["12/29-01/04", "01/05-01/11", "01/12-01/18", "01/19-01/25", "01/26-02/01", "02/02-02/08", "02/09-02/15", "02/16-02/22", "02/23-03/01", "03/02-03/08", "03/09-03/15", "03/16-03/22", "03/23-03/29", "03/30-04/05", "04/06-04/12", "04/13-04/19", "04/20-04/26", "04/27-05/03"], "values": [166387883.0, 260298982.0, 266711624.0, 283032545.0, 266725148.0, 287089358.0, 368856390.0, 193577455.0, 246015680.0, 265614682.0, 252096143.0, 267782852.0, 274252136.0, 275253785.0, 268453988.0, 271636754.0, 292245115.0, 79993629.0]}, "monthly": {"labels": ["2026-01", "2026-02", "2026-03", "2026-04"], "values": [1198756882.0, 1136905473.0, 1136435241.0, 1113926553.0]}, "franchise_top15": {"labels": ["밥풀떼기", "푸줏간(초인)", "김치찜이최고야", "초인유통", "국민매운찜갈비B", "국민매운찜갈비B(제때)", "해솥", "이유있는감자탕", "현풍닭칼국수", "상상짬뽕", "놀부(부장모)", "국민매운찜갈비A(제때)", "모끄불구", "계주", "하선집"], "values": [704819400.0, 468141010.0, 333674140.0, 291853720.0, 245552070.0, 157886610.0, 156408630.0, 154836640.0, 124941930.0, 104515940.0, 103579510.0, 76049900.0, 61275790.0, 60998920.0, 60902170.0]}, "franchise_concentration": {"top15_share": 76.78931955736847, "total_franchises": 124}, "platform": {"total": {"labels": ["브랜드쿡", "식자재쿡"], "values": [3983578429.0, 602445720.0]}, "monthly": {"labels": ["2026-01", "2026-02", "2026-03", "2026-04"], "브랜드쿡": [1033647952.0, 988833223.0, 989716901.0, 971380353.0], "식자재쿡": [165108930.0, 148072250.0, 146718340.0, 142546200.0]}}, "choin": {"total": {"labels": ["식자재쿡(장한유통)", "초인"], "values": [3662650959.0, 923373190.0]}, "monthly": {"labels": ["2026-01", "2026-02", "2026-03", "2026-04"], "초인": [220770590.0, 229733033.0, 238121672.0, 234747895.0], "식자재쿡(장한유통)": [977986292.0, 907172440.0, 898313569.0, 879178658.0]}}, "product_qty_top30": {"labels": ["수)삼계2각(반계)", "동화식품 참맛판두부 3kg EA", "싱싱 / 삼계 55-66호 마리 (국내산)", "싱싱 / 냉장박피닭가슴살 kg (국내산)", "식자재쿡 계란(특란) 30구 판", "식자재쿡 계란(대란) 30구 판", "순두부 400g EA 국내산", "흙대파 단 국내산", "식자재쿡 메뚜기쌀 20kg 포대 보통등급", "냉동다진마늘 1kg EA 중국산", "깐메추리알 1kg EA", "무순 60g 팩 국내산", "절단꽃게 L 450g 팩 중국산", "세진 통통순대 2kg EA", "면사랑 우동사리 200g EA", "대원 사각어묵 800g EA", "간마늘 kg 봉 중국산", "정담원 슬림단무지 2.7kg EA", "초인 / 대파 1단 (A품)", "두절콩나물 kg 봉 국내산", "김치찜이최고야 삼겹 1.6cm찜 5kg EA 칠레산 (토,일 배송불가)", "대판 사누끼우동면 250g EA", "식자재쿡 친환경퐁퐁 13kg 말", "간마늘 kg 봉 국내산", "진산물산 냉면용김치 3kg EA", "레몬 EA 개 수입산", "풍년들 맛김치 10kg BOX", "성산 냉동계란고명채 300g EA", "청양고추 kg 봉 특 국내산", "면사랑 사누끼우동면 230g*5ea EA"], "qty": [14884.0, 13296.0, 10069.0, 8318.0, 7297.0, 5183.0, 4936.0, 4765.0, 3948.0, 3801.0, 3728.0, 3718.0, 3557.0, 3458.0, 3401.0, 3304.0, 3145.0, 3143.0, 3126.0, 3068.0, 2898.0, 2113.0, 1963.0, 1962.0, 1954.0, 1920.0, 1877.0, 1740.0, 1698.0, 1572.0], "rev": [34764000.0, 59638820.0, 22075410.0, 35310000.0, 48796190.0, 34219480.0, 2511100.0, 11678120.0, 228406060.0, 8612340.0, 28690970.0, 2235850.0, 8216550.0, 27974420.0, 1964500.0, 11410230.0, 10826480.0, 16018570.0, 7343900.0, 6662480.0, 163893500.0, 1311010.0, 12006050.0, 13737470.0, 16638460.0, 1352240.0, 29858380.0, 6867800.0, 18201160.0, 4560800.0]}, "product_rev_top30": {"labels": ["식자재쿡 메뚜기쌀 20kg 포대 보통등급", "김치찜이최고야 삼겹 1.6cm찜 5kg EA 칠레산 (토,일 배송불가)", "돈갈비_KJ (20kg)_BOX (돈육:국내산)", "[국찜] 돈갈비(국내산) 20KG", "(푸줏간) 푸줏간구이 냉동  (5KG*2EA/BX)", "(푸줏간) 숙성삼겹살 냉동  (5KG*2EA/BX)", "김치찌개김치(파란색) BOX (밥풀)", "꿀배양념장(만능) EA (밥풀)", "동화식품 참맛판두부 3kg EA", "김치찜김치(노랑색) BOX (밥풀)", "[국찜] 순한맛소스 box(5kg*3)", "순한찜갈비소스_KJ(기본맛/5kg*3ea)_BOX", "식자재쿡 계란(특란) 30구 판", "[이유] 돈목뼈 중 15kg", "식자재쿡 햇살미쌀 20kg 포대 상등급", "(푸줏간) 양념숙성돼지구이 냉동  (2KG*5EA/BX)", "밥풀냉면 BOX (밥풀)", "계주)뼈없는 사이갈비(냉장)5kg", "싱싱 / 냉장박피닭가슴살 kg (국내산)", "수)삼계2각(반계)", "식자재쿡 계란(대란) 30구 판", "식자재쿡 메뚜기쌀 20kg 포대 상등급", "세천팜 반달채단무지 2.5kg*8ea BOX", "[국찜] 매운맛소스 box(5kg*3)", "풍년들 맛김치 10kg BOX", "깐메추리알 1kg EA", "매운찜갈비소스_KJ (5kg*3ea)_BOX", "세진 통통순대 2kg EA", "돈목뼈 중 15kg", "다원FS 가을미소 굵은고춧가루(김치용) 5kg EA"], "qty": [3948.0, 2898.0, 687.0, 661.0, 1341.0, 885.0, 897.0, 1563.0, 13296.0, 607.0, 209.0, 208.0, 7297.0, 881.0, 745.0, 412.0, 603.0, 627.0, 8318.0, 14884.0, 5183.0, 556.0, 697.0, 123.0, 1877.0, 3728.0, 109.0, 3458.0, 512.0, 533.0], "rev": [228406060.0, 163893500.0, 133278000.0, 128234000.0, 124234400.0, 107030500.0, 69069000.0, 64083000.0, 59638820.0, 53416000.0, 53252100.0, 53014500.0, 48796190.0, 45658500.0, 43491000.0, 42047060.0, 37989000.0, 36183100.0, 35310000.0, 34764000.0, 34219480.0, 33055430.0, 32354440.0, 31482000.0, 29858380.0, 28690970.0, 28690200.0, 27974420.0, 26925000.0, 26670700.0]}, "region_si": {"labels": ["부산", "경남", "울산", "대구", "인천", "경기", "경북", "충남", "세종", "강원", "충북", "전남", "대전", "서울"], "values": [2712716785.0, 727973567.0, 499097050.0, 222832450.0, 135322740.0, 105425539.0, 89918920.0, 37464608.0, 18584500.0, 14289910.0, 9736460.0, 7321110.0, 5266200.0, 74310.0]}, "region_top20": {"labels": ["부산 해운대구", "울산 남구", "부산 부산진구", "부산 동래구", "경남 창원시", "경남 김해시", "부산 사하구", "경남 양산시", "부산 강서구", "부산 수영구", "부산 연제구", "부산 남구", "부산 서구", "부산 북구", "부산 사상구", "부산 금정구", "부산 동구", "부산 기장군", "부산 중구", "울산 중구"], "values": [376928007.0, 329708040.0, 314240960.0, 251241842.0, 229121201.0, 227877826.0, 219140198.0, 212127620.0, 199051918.0, 153437930.0, 152240020.0, 143339734.0, 130858178.0, 124526510.0, 122892010.0, 106096476.0, 105770999.0, 96634322.0, 85864522.0, 85374960.0]}, "busan_share": 59.151820768137874, "busan_gn_uls_share": 85.90856205715981};
-const fmt = n => n.toLocaleString('ko-KR');
+const fmt = n => Math.round(n).toLocaleString('ko-KR');
 const kor = n => {
   const a = Math.abs(n);
   if (a >= 1e8) return (n/1e8).toFixed(1)+'억';
@@ -404,14 +326,33 @@ const korL = n => {
   return fmt(n);
 };
 
-// Chart.js global defaults — Pretendard everywhere
+// Auto contrast text color based on bg luminance
+function getContrast(hex) {
+  if (!hex || typeof hex !== 'string' || !hex.startsWith('#') || hex.length < 7) return '#0a0a0a';
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+  return lum > 0.55 ? '#0a0a0a' : '#ffffff';
+}
+
+// Moving average
+function movingAvg(arr, w) {
+  const r = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i < w - 1) { r.push(null); continue; }
+    let s = 0;
+    for (let j = i - w + 1; j <= i; j++) s += arr[j];
+    r.push(s / w);
+  }
+  return r;
+}
+
 Chart.defaults.color = '#8a8a8a';
 Chart.defaults.font.family = "'Pretendard', sans-serif";
 Chart.defaults.font.size = 11;
 Chart.defaults.font.weight = '500';
 Chart.defaults.borderColor = '#2a2a2a';
-
-// Tooltip default styling
 Chart.defaults.plugins.tooltip.backgroundColor = '#1a1a1a';
 Chart.defaults.plugins.tooltip.titleColor = '#f59e0b';
 Chart.defaults.plugins.tooltip.bodyColor = '#ececec';
@@ -421,88 +362,220 @@ Chart.defaults.plugins.tooltip.padding = 12;
 Chart.defaults.plugins.tooltip.titleFont = { family: "'Pretendard', sans-serif", weight: '700', size: 12 };
 Chart.defaults.plugins.tooltip.bodyFont = { family: "'Pretendard', sans-serif", weight: '500', size: 12 };
 Chart.defaults.plugins.tooltip.cornerRadius = 4;
-Chart.defaults.plugins.tooltip.displayColors = true;
 Chart.defaults.plugins.tooltip.boxPadding = 4;
 
 const COLORS = {
-  orange: '#f59e0b',
-  orange2: '#ff6b35',
-  yellow: '#fbbf24',
-  yellowLight: '#fde047',
-  amber: '#d97706',
-  red: '#dc2626',
-  ink: '#ececec',
-  inkDim: '#8a8a8a',
-  gridSoft: '#1f1f1f',
-  gridLine: '#2a2a2a'
+  orange: '#f59e0b', orange2: '#ff6b35', yellow: '#fbbf24', yellowLight: '#fde047',
+  amber: '#d97706', blue: '#3b82f6', red: '#dc2626', ink: '#ececec', inkDim: '#8a8a8a',
+  gridSoft: '#1f1f1f', gridLine: '#2a2a2a', trend: 'rgba(255,255,255,0.85)'
 };
 
 /* ============================================
-   PLUGIN: Always-visible MIN/MAX labels
-   For bar/line charts. Detects axis from indexAxis.
+   PLUGIN 1: MIN / MAX / LATEST always-on labels
+   - Opt-in via plugins.minMaxLabel.enabled === true
+   - showLatest: true → also marks the LAST data point
+   - Stacks labels vertically when indices coincide
    ============================================ */
 const minMaxLabelPlugin = {
   id: 'minMaxLabel',
-  afterDatasetsDraw(chart, args, opts) {
-    const cfg = chart.options.plugins.minMaxLabel || {};
-    if (cfg.enabled === false) return;
-    const datasetIndex = cfg.datasetIndex !== undefined ? cfg.datasetIndex : 0;
-    const ds = chart.data.datasets[datasetIndex];
-    if (!ds) return;
-    const meta = chart.getDatasetMeta(datasetIndex);
-    if (!meta || !meta.data || !meta.data.length) return;
+  afterDatasetsDraw(chart) {
+    try {
+      const cfg = (chart.options && chart.options.plugins && chart.options.plugins.minMaxLabel) || null;
+      if (!cfg || cfg.enabled !== true) return;
+      const dsIdx = cfg.datasetIndex !== undefined ? cfg.datasetIndex : 0;
+      const ds = chart.data.datasets[dsIdx];
+      if (!ds || !Array.isArray(ds.data) || ds.data.length === 0) return;
+      const meta = chart.getDatasetMeta(dsIdx);
+      if (!meta || !meta.data || !meta.data.length) return;
+      const t = (meta.type || ds.type || chart.config.type || '').toLowerCase();
+      if (t !== 'bar' && t !== 'line') return;
 
-    const data = ds.data;
-    let minIdx = 0, maxIdx = 0;
-    for (let i = 1; i < data.length; i++) {
-      if (data[i] < data[minIdx]) minIdx = i;
-      if (data[i] > data[maxIdx]) maxIdx = i;
-    }
-    const ctx = chart.ctx;
-    const isHorizontal = chart.options.indexAxis === 'y';
-    const fmt = cfg.formatter || (v => v.toLocaleString());
-
-    const drawLabel = (idx, label, color) => {
-      const el = meta.data[idx];
-      if (!el) return;
-      const pos = el.tooltipPosition();
-      const text = label + ' ' + fmt(data[idx]);
-      ctx.save();
-      ctx.font = "700 11px 'Pretendard', sans-serif";
-      const w = ctx.measureText(text).width + 12;
-      const h = 20;
-      let x, y;
-      if (isHorizontal) {
-        x = pos.x + 8;
-        y = pos.y - h/2;
-        // Keep on canvas
-        if (x + w > chart.chartArea.right) x = pos.x - w - 8;
-      } else {
-        x = pos.x - w/2;
-        y = pos.y - h - 6;
-        if (y < chart.chartArea.top) y = pos.y + 6;
-        if (x < chart.chartArea.left) x = chart.chartArea.left + 2;
-        if (x + w > chart.chartArea.right) x = chart.chartArea.right - w - 2;
+      const data = ds.data.map(v => (typeof v === 'number') ? v : (v && v.y) ? v.y : 0);
+      let minIdx = 0, maxIdx = 0;
+      for (let i = 1; i < data.length; i++) {
+        if (data[i] < data[minIdx]) minIdx = i;
+        if (data[i] > data[maxIdx]) maxIdx = i;
       }
-      ctx.fillStyle = color;
-      ctx.fillRect(x, y, w, h);
-      ctx.fillStyle = '#0a0a0a';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(text, x + 6, y + h/2 + 1);
-      ctx.restore();
-    };
+      const latestIdx = data.length - 1;
+      const ctx = chart.ctx;
+      const isHorizontal = chart.options.indexAxis === 'y';
+      const formatter = cfg.formatter || (v => v.toLocaleString());
+      const drawnAt = new Map();
 
-    if (cfg.showMax !== false) drawLabel(maxIdx, 'MAX', cfg.maxColor || '#fbbf24');
-    if (cfg.showMin !== false) drawLabel(minIdx, 'MIN', cfg.minColor || '#ff6b35');
+      const drawLabel = (idx, label, color) => {
+        try {
+          const el = meta.data[idx];
+          if (!el || typeof el.tooltipPosition !== 'function') return;
+          const pos = el.tooltipPosition(true);
+          if (!pos || !isFinite(pos.x) || !isFinite(pos.y)) return;
+          const text = label + ' ' + formatter(data[idx]);
+          ctx.save();
+          ctx.font = "700 11px 'Pretendard', sans-serif";
+          const w = ctx.measureText(text).width + 12;
+          const h = 20;
+          const stack = drawnAt.get(idx) || 0;
+          let x, y;
+          if (isHorizontal) {
+            x = pos.x + 8 + stack * (w + 4);
+            y = pos.y - h / 2;
+            if (x + w > chart.chartArea.right) x = pos.x - w - 8 - stack * (w + 4);
+          } else {
+            x = pos.x - w / 2;
+            y = pos.y - h - 6 - stack * (h + 3);
+            if (y < chart.chartArea.top) y = pos.y + 6 + stack * (h + 3);
+            if (x < chart.chartArea.left) x = chart.chartArea.left + 2;
+            if (x + w > chart.chartArea.right) x = chart.chartArea.right - w - 2;
+          }
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect(x, y, w, h, 3);
+          else ctx.rect(x, y, w, h);
+          ctx.fill();
+          ctx.fillStyle = getContrast(color);
+          ctx.textBaseline = 'middle';
+          ctx.fillText(text, x + 6, y + h / 2 + 1);
+          ctx.restore();
+          drawnAt.set(idx, stack + 1);
+        } catch (e) {}
+      };
+
+      if (cfg.showMax !== false) drawLabel(maxIdx, 'MAX', cfg.maxColor || '#fbbf24');
+      if (cfg.showMin !== false) drawLabel(minIdx, 'MIN', cfg.minColor || '#ff6b35');
+      if (cfg.showLatest === true) drawLabel(latestIdx, 'NOW', cfg.latestColor || '#ffffff');
+    } catch (e) {}
   }
 };
 Chart.register(minMaxLabelPlugin);
 
-// Header
+/* ============================================
+   PLUGIN 2: Per-bar value labels (always-on)
+   - Opt-in via plugins.barValueLabel.enabled === true
+   - For horizontal bars: places text just to the right of bar end
+   - For vertical bars: above the bar tip
+   ============================================ */
+const barValueLabelPlugin = {
+  id: 'barValueLabel',
+  afterDatasetsDraw(chart) {
+    try {
+      const cfg = (chart.options && chart.options.plugins && chart.options.plugins.barValueLabel) || null;
+      if (!cfg || cfg.enabled !== true) return;
+      const dsIdx = cfg.datasetIndex !== undefined ? cfg.datasetIndex : 0;
+      const ds = chart.data.datasets[dsIdx];
+      const meta = chart.getDatasetMeta(dsIdx);
+      if (!ds || !meta || !meta.data || !meta.data.length) return;
+      const t = (meta.type || ds.type || chart.config.type || '').toLowerCase();
+      if (t !== 'bar') return;
+
+      const isHorizontal = chart.options.indexAxis === 'y';
+      const formatter = cfg.formatter || (v => v.toLocaleString());
+      const ctx = chart.ctx;
+      ctx.save();
+      ctx.font = "600 11px 'Pretendard', sans-serif";
+      ctx.fillStyle = cfg.color || '#fde047';
+
+      meta.data.forEach((el, i) => {
+        try {
+          const v = ds.data[i];
+          if (v == null) return;
+          const pos = el.tooltipPosition(true);
+          if (!pos || !isFinite(pos.x) || !isFinite(pos.y)) return;
+          const text = formatter(v);
+          if (isHorizontal) {
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            const x = pos.x + 8;
+            if (x + ctx.measureText(text).width <= chart.chartArea.right + 100) {
+              ctx.fillText(text, x, pos.y);
+            }
+          } else {
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(text, pos.x, pos.y - 4);
+          }
+        } catch (e) {}
+      });
+      ctx.restore();
+    } catch (e) {}
+  }
+};
+Chart.register(barValueLabelPlugin);
+
+/* ============================================
+   PLUGIN 3: Doughnut segment labels (always-on)
+   - Opt-in via plugins.doughnutLabel.enabled === true
+   - Shows % at midradius, optionally a value below
+   - Auto-contrasts text color against segment fill
+   ============================================ */
+const doughnutLabelPlugin = {
+  id: 'doughnutLabel',
+  afterDatasetsDraw(chart) {
+    try {
+      const cfg = (chart.options && chart.options.plugins && chart.options.plugins.doughnutLabel) || null;
+      if (!cfg || cfg.enabled !== true) return;
+      const meta = chart.getDatasetMeta(0);
+      const ds = chart.data.datasets[0];
+      if (!meta || !ds || !meta.data || !ds.data) return;
+      const total = ds.data.reduce((a, b) => a + (b || 0), 0);
+      if (!total) return;
+      const ctx = chart.ctx;
+      const minPct = cfg.minPct !== undefined ? cfg.minPct : 4;
+      const showValue = cfg.showValue === true;
+      const valueFormatter = cfg.valueFormatter || (v => v.toLocaleString());
+
+      meta.data.forEach((arc, i) => {
+        try {
+          const v = ds.data[i];
+          if (!v) return;
+          const pct = (v / total) * 100;
+          if (pct < minPct) return;
+          const angle = (arc.startAngle + arc.endAngle) / 2;
+          const r = (arc.innerRadius + arc.outerRadius) / 2;
+          const x = arc.x + Math.cos(angle) * r;
+          const y = arc.y + Math.sin(angle) * r;
+          const bgColor = Array.isArray(ds.backgroundColor) ? ds.backgroundColor[i] : ds.backgroundColor;
+          const txtColor = getContrast(bgColor);
+          ctx.save();
+          ctx.fillStyle = txtColor;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          if (showValue) {
+            ctx.font = "700 13px 'Pretendard', sans-serif";
+            ctx.fillText(pct.toFixed(1) + '%', x, y - 8);
+            ctx.font = "600 10px 'Pretendard', sans-serif";
+            ctx.fillText(valueFormatter(v), x, y + 8);
+          } else {
+            ctx.font = "700 13px 'Pretendard', sans-serif";
+            ctx.fillText(pct.toFixed(1) + '%', x, y);
+          }
+          ctx.restore();
+        } catch (e) {}
+      });
+    } catch (e) {}
+  }
+};
+Chart.register(doughnutLabelPlugin);
+
+function safeChart(ctxId, config) {
+  try {
+    const el = document.getElementById(ctxId);
+    if (!el) { console.warn('Canvas missing:', ctxId); return null; }
+    return new Chart(el, config);
+  } catch (e) {
+    console.error('Chart failed:', ctxId, e);
+    const el = document.getElementById(ctxId);
+    if (el && el.parentNode) {
+      const errDiv = document.createElement('div');
+      errDiv.style.cssText = 'color:#ff6b35;font-size:12px;padding:20px;text-align:center;';
+      errDiv.textContent = '차트 렌더링 실패: ' + ctxId;
+      el.parentNode.appendChild(errDiv);
+    }
+    return null;
+  }
+}
+
 document.getElementById('period').textContent = D.summary.period;
 document.getElementById('days').textContent = D.summary.days + ' DAYS';
 
-// KPI Strip
 const kpis = [
   { label: '총 매출', value: korL(D.summary.total_rev), unit:'원', sub: 'GROSS REVENUE' },
   { label: '주문 건수', value: fmt(D.summary.total_orders), unit:'건', sub: 'UNIQUE ORDERS' },
@@ -515,12 +588,13 @@ document.getElementById('kpiStrip').innerHTML = kpis.map(k=>
   `<div class="kpi"><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.value}<span class="unit">${k.unit}</span></div><div class="kpi-sub">${k.sub}</div></div>`
 ).join('');
 
-/* ===== Section 0: DAILY combo chart ===== */
+/* ===== Section 0: DAILY combo + 7-day MA trendline ===== */
 const dRev = D.daily.revenue;
 const dOrd = D.daily.orders;
 const dBr = D.daily.branches;
 const dLab = D.daily.labels;
 const dFull = D.daily.full_dates;
+const dRevMA7 = movingAvg(dRev, 7);
 
 const dRevAvg = dRev.reduce((a,b)=>a+b,0) / dRev.length;
 const dOrdAvg = dOrd.reduce((a,b)=>a+b,0) / dOrd.length;
@@ -530,6 +604,10 @@ const dRevMinIdx = dRev.indexOf(Math.min(...dRev));
 const dOrdMaxIdx = dOrd.indexOf(Math.max(...dOrd));
 const dBrMaxIdx = dBr.indexOf(Math.max(...dBr));
 
+const dRevMax = Math.max(...dRev) * 1.15;
+const dOrdMax = Math.max(...dOrd) * 1.30;
+const dBrMax = Math.max(...dBr) * 1.45;
+
 document.getElementById('dailyHead').innerHTML = `최고 매출일 <span class="hl">${dFull[dRevMaxIdx]}</span> · ${korL(dRev[dRevMaxIdx])}원 / 최저 ${dFull[dRevMinIdx]} · ${korL(dRev[dRevMinIdx])}원`;
 
 document.getElementById('dailyMini').innerHTML = `
@@ -538,149 +616,147 @@ document.getElementById('dailyMini').innerHTML = `
   <div class="daily-mini-cell"><div class="daily-mini-label">최저 매출일</div><div class="daily-mini-val down">${dFull[dRevMinIdx]}</div><div class="daily-mini-sub">${korL(dRev[dRevMinIdx])}원</div></div>
   <div class="daily-mini-cell"><div class="daily-mini-label">일평균 주문</div><div class="daily-mini-val">${fmt(Math.round(dOrdAvg))}건</div><div class="daily-mini-sub">DAILY AVG ORDERS</div></div>
   <div class="daily-mini-cell"><div class="daily-mini-label">최다 주문일</div><div class="daily-mini-val">${dFull[dOrdMaxIdx]}</div><div class="daily-mini-sub">${fmt(dOrd[dOrdMaxIdx])}건</div></div>
-  <div class="daily-mini-cell"><div class="daily-mini-label">최다 활성거래처</div><div class="daily-mini-val">${fmt(dBr[dBrMaxIdx])}개</div><div class="daily-mini-sub">${dFull[dBrMaxIdx]}</div></div>
+  <div class="daily-mini-cell"><div class="daily-mini-label">일평균 활성거래처</div><div class="daily-mini-val">${fmt(Math.round(dBrAvg))}개</div><div class="daily-mini-sub">DAILY AVG BRANCHES</div></div>
 `;
 
-new Chart(document.getElementById('dailyChart'), {
+safeChart('dailyChart', {
   data: {
     labels: dLab,
     datasets: [
       {
-        type: 'bar',
-        label: '일별 매출',
-        data: dRev,
-        backgroundColor: 'rgba(245, 158, 11, 0.55)',
-        borderColor: 'rgba(245, 158, 11, 0.9)',
-        borderWidth: 1,
-        borderRadius: 1,
-        yAxisID: 'y',
-        order: 3
+        type: 'bar', label: '일별 매출', data: dRev,
+        backgroundColor: ctx => {
+          const chart = ctx.chart;
+          const {ctx: c, chartArea} = chart;
+          if (!chartArea) return 'rgba(245,158,11,0.45)';
+          const g = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          g.addColorStop(0, 'rgba(245,158,11,0.15)');
+          g.addColorStop(1, 'rgba(245,158,11,0.65)');
+          return g;
+        },
+        borderColor: 'rgba(245,158,11,0.85)', borderWidth: 0.5, borderRadius: 2,
+        yAxisID: 'y', order: 4, barPercentage: 0.85, categoryPercentage: 0.95
       },
       {
-        type: 'line',
-        label: '주문건수',
-        data: dOrd,
+        type: 'line', label: '추세선 (7일 이동평균)', data: dRevMA7,
+        borderColor: COLORS.trend, backgroundColor: 'transparent',
+        borderWidth: 2.5, borderDash: [10, 5],
+        pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: '#ffffff',
+        tension: 0.4, fill: false, yAxisID: 'y', order: 3, spanGaps: false
+      },
+      {
+        type: 'line', label: '주문건수', data: dOrd,
         borderColor: '#ff6b35',
-        backgroundColor: 'rgba(255, 107, 53, 0.0)',
-        borderWidth: 2,
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#ff6b35',
-        tension: 0.35,
-        yAxisID: 'y1',
-        order: 1
+        backgroundColor: ctx => {
+          const chart = ctx.chart;
+          const {ctx: c, chartArea} = chart;
+          if (!chartArea) return 'rgba(255,107,53,0.1)';
+          const g = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          g.addColorStop(0, 'rgba(255,107,53,0.0)');
+          g.addColorStop(1, 'rgba(255,107,53,0.18)');
+          return g;
+        },
+        borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 6,
+        pointHoverBackgroundColor: '#ff6b35', pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
+        tension: 0.45, fill: true, yAxisID: 'y1', order: 2
       },
       {
-        type: 'line',
-        label: '활성거래처',
-        data: dBr,
-        borderColor: '#fbbf24',
-        backgroundColor: 'rgba(251, 191, 36, 0.0)',
-        borderWidth: 2,
-        borderDash: [4,4],
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#fbbf24',
-        tension: 0.35,
-        yAxisID: 'y1',
-        order: 2
+        type: 'line', label: '활성거래처', data: dBr,
+        borderColor: '#fde047', backgroundColor: 'rgba(253,224,71,0.0)',
+        borderWidth: 2, borderDash: [6,4],
+        pointRadius: 0, pointHoverRadius: 6,
+        pointHoverBackgroundColor: '#fde047', pointHoverBorderColor: '#0a0a0a', pointHoverBorderWidth: 2,
+        tension: 0.45, fill: false, yAxisID: 'y2', order: 1
       }
     ]
   },
   options: {
     maintainAspectRatio: false,
     interaction: { mode: 'index', intersect: false },
+    layout: { padding: { right: 20 } },
     plugins: {
-      legend: { position: 'top', labels: { padding: 14, usePointStyle: true, boxWidth: 8, color: '#ececec', font:{ weight:'600' } } },
+      legend: {
+        position: 'top', align: 'end',
+        labels: { padding: 16, usePointStyle: true, boxWidth: 10, color: '#ececec', font: { weight: '600', size: 12 } }
+      },
       tooltip: {
         callbacks: {
           title: items => '📅 ' + dFull[items[0].dataIndex],
           label: c => {
-            if (c.dataset.label === '일별 매출') return `매출: ₩${fmt(c.raw)}`;
-            if (c.dataset.label === '주문건수') return `주문: ${fmt(c.raw)}건`;
-            if (c.dataset.label === '활성거래처') return `활성거래처: ${fmt(c.raw)}개`;
-            return c.dataset.label + ': ' + fmt(c.raw);
+            if (c.dataset.label === '일별 매출') return ` 매출 ₩${fmt(c.raw)}`;
+            if (c.dataset.label === '추세선 (7일 이동평균)') return c.raw == null ? '' : ` 추세 ₩${fmt(c.raw)}`;
+            if (c.dataset.label === '주문건수') return ` 주문 ${fmt(c.raw)}건`;
+            if (c.dataset.label === '활성거래처') return ` 활성거래처 ${fmt(c.raw)}개`;
+            return c.dataset.label + ' ' + fmt(c.raw);
           }
         }
-      },
-      minMaxLabel: {
-        enabled: true,
-        datasetIndex: 0,
-        formatter: v => kor(v),
-        maxColor: '#fbbf24',
-        minColor: '#ff6b35'
       }
     },
     scales: {
-      y: {
-        position: 'left',
-        beginAtZero: true,
-        title: { display: true, text: '매출(원)', color: '#f59e0b', font:{ weight:'600' } },
-        ticks: { callback: v => kor(v), color: '#8a8a8a' },
-        grid: { color: '#1f1f1f' }
+      y: { position: 'left', beginAtZero: true, suggestedMax: dRevMax,
+        title: { display: true, text: '매출 (원)', color: '#f59e0b', font: { weight: '700', size: 11 }, padding: { bottom: 8 } },
+        ticks: { callback: v => kor(v), color: '#f59e0b', font: { weight: '600' } },
+        grid: { color: '#1f1f1f', drawTicks: false }, border: { color: '#2a2a2a' }
       },
-      y1: {
-        position: 'right',
-        beginAtZero: true,
-        title: { display: true, text: '주문 / 거래처(개)', color: '#ff6b35', font:{ weight:'600' } },
-        ticks: { callback: v => fmt(v), color: '#8a8a8a' },
-        grid: { display: false }
+      y1: { position: 'right', beginAtZero: true, suggestedMax: dOrdMax,
+        title: { display: true, text: '주문 (건)', color: '#ff6b35', font: { weight: '700', size: 11 }, padding: { bottom: 8 } },
+        ticks: { callback: v => fmt(v), color: '#ff6b35', font: { weight: '600' } },
+        grid: { display: false }, border: { color: '#2a2a2a' }
       },
-      x: {
-        ticks: { autoSkip: true, maxRotation: 0, color: '#8a8a8a', font:{ size: 10 } },
-        grid: { display: false }
-      }
+      y2: { position: 'right', beginAtZero: true, suggestedMax: dBrMax, offset: true,
+        title: { display: true, text: '거래처 (개)', color: '#fde047', font: { weight: '700', size: 11 }, padding: { bottom: 8 } },
+        ticks: { callback: v => fmt(v), color: '#fde047', font: { weight: '600' } },
+        grid: { display: false }, border: { display: false }
+      },
+      x: { ticks: { autoSkip: true, maxRotation: 0, color: '#8a8a8a', font: { size: 10 } }, grid: { display: false } }
     }
   }
 });
 
-document.getElementById('insight0').innerHTML = `118일 분석기간 동안 일평균 매출은 <strong>${korL(dRevAvg)}원</strong>, 일평균 주문 <strong>${fmt(Math.round(dOrdAvg))}건</strong>, 활성거래처 <strong>${fmt(Math.round(dBrAvg))}개/일</strong>. 최고 매출일은 <strong>${dFull[dRevMaxIdx]} ${korL(dRev[dRevMaxIdx])}원</strong> (설 직전 발주 폭증 추정), 최저는 <span class="neg">${dFull[dRevMinIdx]} ${korL(dRev[dRevMinIdx])}원</span> (명절·일요일 등 휴무 영향). 매출과 주문건수 곡선이 거의 동행하나 일부 구간에서 <strong>주문건수는 유지되는데 매출은 감소</strong>하는 흐름이 관찰 — 이는 <strong>객단가(AOV) 하락</strong> 시그널로, 발주 단위가 작아지고 있음을 시사. 활성거래처(점선)는 안정적으로 유지되어 거래처 이탈보다는 <strong>건당 발주 규모 축소</strong>가 매출 둔화의 1차 원인일 가능성이 높음.`;
+document.getElementById('insight0').innerHTML = `118일 분석기간 동안 일평균 매출 <strong>${korL(dRevAvg)}원</strong>, 일평균 주문 <strong>${fmt(Math.round(dOrdAvg))}건</strong>, 활성거래처 <strong>${fmt(Math.round(dBrAvg))}개/일</strong>. 최고 매출일 <strong>${dFull[dRevMaxIdx]} ${korL(dRev[dRevMaxIdx])}원</strong>, 최저 <span class="neg">${dFull[dRevMinIdx]} ${korL(dRev[dRevMinIdx])}원</span>. <strong>흰색 점선(7일 이동평균 추세선)</strong>은 일별 노이즈를 제거한 본질적 매출 흐름을 보여줌 — 설 직전 정점 후 점진적 우하향. 매출(주황)과 주문(주황실선)은 동행하나 활성거래처(노랑점선)는 안정적으로 유지 → <strong>거래처 이탈이 아닌 건당 발주 규모(AOV) 축소</strong>가 매출 둔화의 핵심 요인.`;
 
-/* ===== Section 1: Weekly ===== */
+/* ===== Section 1: Weekly with MIN/MAX/NOW ===== */
 const wkTotal = D.weekly.values.reduce((a,b)=>a+b,0);
 const wkAvg = wkTotal / D.weekly.values.length;
 document.getElementById('wkTotal').textContent = korL(wkTotal);
 document.getElementById('wkAvg').textContent = korL(wkAvg);
 
-new Chart(document.getElementById('weeklyChart'), {
+safeChart('weeklyChart', {
   type: 'bar',
   data: {
     labels: D.weekly.labels,
     datasets: [{
-      label: '주차별 매출',
-      data: D.weekly.values,
+      label: '주차별 매출', data: D.weekly.values,
       backgroundColor: ctx => {
-        const v = ctx.raw;
-        const max = Math.max(...D.weekly.values);
+        const v = ctx.raw; const max = Math.max(...D.weekly.values);
         const ratio = v / max;
         if (ratio > 0.95) return COLORS.yellow;
         if (ratio > 0.8) return COLORS.orange;
         if (ratio > 0.5) return 'rgba(245,158,11,0.7)';
         return 'rgba(245,158,11,0.4)';
       },
-      borderColor: COLORS.orange,
-      borderWidth: 1,
-      borderRadius: 2
+      borderColor: COLORS.orange, borderWidth: 1, borderRadius: 2
     }]
   },
   options: {
     maintainAspectRatio: false,
+    layout: { padding: { top: 30 } },
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: c => '매출: ₩' + fmt(c.raw) } },
-      minMaxLabel: { enabled: true, formatter: v => kor(v) }
+      tooltip: { callbacks: { label: c => '매출 ₩' + fmt(c.raw) } },
+      minMaxLabel: { enabled: true, formatter: v => kor(v), showLatest: true, latestColor: '#ffffff' }
     },
     scales: {
       y: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
-      x: { grid: { display: false }, ticks: { font:{ size:10 } } }
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } }
     }
   }
 });
 
 const peakWk = D.weekly.values.indexOf(Math.max(...D.weekly.values));
-document.getElementById('insight1').innerHTML = `분석 기간 18주 동안 주 평균 약 <strong>${korL(wkAvg)}원</strong> 매출 발생. 최고 매출 주는 <strong>${D.weekly.labels[peakWk]}</strong> (<strong>${korL(D.weekly.values[peakWk])}원</strong>) — 설 명절 직전 수요 폭증 추정. 마지막 주(04/27~)는 4월 28일까지의 부분 데이터로 절대값 비교에서 제외 필요. 주 단위 변동성이 ±20% 수준으로 외식·프랜차이즈 발주 사이클 영향이 직접적으로 반영됨.`;
+document.getElementById('insight1').innerHTML = `분석 기간 18주 동안 주 평균 약 <strong>${korL(wkAvg)}원</strong> 매출 발생. 차트에는 <strong>MAX(노랑·최고주차)</strong>, <strong>MIN(주황·최저주차)</strong>, <strong>NOW(흰색·최근주차)</strong> 3개 레이블이 상시 표시됨. 최고 매출 주는 <strong>${D.weekly.labels[peakWk]}</strong> (<strong>${korL(D.weekly.values[peakWk])}원</strong>) — 설 명절 직전 수요 폭증 추정. 마지막 주(04/27~)는 4월 28일까지의 부분 데이터로 절대값 비교에서 제외 필요. 주 단위 변동성이 ±20% 수준으로 외식·프랜차이즈 발주 사이클 영향이 직접 반영됨.`;
 
-/* ===== Section 2: Franchise ===== */
+/* ===== Section 2: Franchise with bar value labels ===== */
 const fr = D.franchise_top15;
 const fr_top5 = fr.values.slice(0,5).reduce((a,b)=>a+b,0);
 const fr_top15_total = fr.values.reduce((a,b)=>a+b,0);
@@ -694,79 +770,71 @@ document.getElementById('frTop15').innerHTML = `${kor(fr_top15_total)}원 <span 
 document.getElementById('frTop1').textContent = fr.labels[0];
 document.getElementById('frTop1Rev').innerHTML = `${kor(fr.values[0])}원 <span class="pct">${(fr.values[0]/totalFrRev*100).toFixed(1)}%</span>`;
 
-new Chart(document.getElementById('franchiseChart'), {
+safeChart('franchiseChart', {
   type: 'bar',
   data: {
     labels: fr.labels,
     datasets: [{
       data: fr.values,
       backgroundColor: fr.labels.map(l => l.includes('초인') || l === '초인유통' ? COLORS.orange2 : COLORS.orange),
-      borderColor: '#0a0a0a',
-      borderWidth: 1,
-      borderRadius: 2
+      borderColor: '#0a0a0a', borderWidth: 1, borderRadius: 2
     }]
   },
   options: {
-    indexAxis: 'y',
-    maintainAspectRatio: false,
+    indexAxis: 'y', maintainAspectRatio: false,
+    layout: { padding: { right: 80 } },
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: c => '매출: ₩' + fmt(c.raw) + ' (' + (c.raw/totalFrRev*100).toFixed(1) + '%)' } },
-      minMaxLabel: { enabled: true, formatter: v => kor(v) }
+      tooltip: { callbacks: { label: c => '매출 ₩' + fmt(c.raw) + ' (' + (c.raw/totalFrRev*100).toFixed(1) + '%)' } },
+      barValueLabel: { enabled: true, formatter: v => '₩' + kor(v), color: '#fde047' }
     },
     scales: {
-      x: { beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
-      y: { grid: { display: false }, ticks: { font:{ size:11 } } }
+      x: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      y: { grid: { display: false }, ticks: { font: { size: 11 } } }
     }
   }
 });
 
-document.getElementById('insight2').innerHTML = `등록된 활성 프랜차이즈 <strong>${D.summary.n_franchise}개</strong> 중 <strong>상위 15개가 매출의 ${top15Share.toFixed(1)}%</strong>를 차지하는 매우 높은 집중도 구조. 1위 <strong>'밥풀떼기'</strong>가 단독으로 7억원 (15.4%) — 연간 단순 환산 시 약 21억원 규모의 핵심 KA(Key Account). TOP 15 중 <strong>5개(푸줏간·초인유통·와이제이푸드·유남주·고대장)</strong>가 '초인' 계열이며, 이들 합계가 약 12.7%를 차지해 사실상 또 하나의 '초인 클러스터'를 형성. 핵심 KA 락인(전속 SKU·물류 SLA·결제 텀) 강화와 동시에 100여 개 롱테일 프랜차이즈 활성화의 투트랙 전략 필요.`;
+document.getElementById('insight2').innerHTML = `등록된 활성 프랜차이즈 <strong>${D.summary.n_franchise}개</strong> 중 <strong>상위 15개가 매출의 ${top15Share.toFixed(1)}%</strong>를 차지하는 매우 높은 집중도 구조. 1위 <strong>'밥풀떼기'</strong>가 단독으로 7억원 (15.4%) — 연간 단순 환산 시 약 21억원 규모의 핵심 KA(Key Account). TOP 15 중 <strong>5개(푸줏간·초인유통·와이제이푸드·유남주·고대장)</strong>가 '초인' 계열이며, 이들 합계가 약 12.7%를 차지해 사실상 또 하나의 '초인 클러스터'를 형성. 각 막대 우측 매출액 상시 표시 → 한눈에 절대 규모 파악 가능. 핵심 KA 락인 강화 + 100여 개 롱테일 활성화 투트랙 전략 필요.`;
 
-/* ===== Section 3: Platform ===== */
+/* ===== Section 3: Platform — YELLOW + BLUE ===== */
 const platTotal = D.platform.total.values.reduce((a,b)=>a+b,0);
-new Chart(document.getElementById('platformDonut'), {
+// 브랜드쿡 = yellow, 식자재쿡 = blue
+const platColors = D.platform.total.labels.map(l => l === '브랜드쿡' ? COLORS.yellow : COLORS.blue);
+
+safeChart('platformDonut', {
   type: 'doughnut',
   data: {
     labels: D.platform.total.labels,
-    datasets: [{
-      data: D.platform.total.values,
-      backgroundColor: [COLORS.orange, COLORS.yellow],
-      borderColor: '#0a0a0a',
-      borderWidth: 3,
-      hoverOffset: 8
-    }]
+    datasets: [{ data: D.platform.total.values, backgroundColor: platColors, borderColor: '#0a0a0a', borderWidth: 3, hoverOffset: 8 }]
   },
   options: {
-    maintainAspectRatio: false,
-    cutout: '62%',
+    maintainAspectRatio: false, cutout: '62%',
     plugins: {
       legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, boxWidth: 8, color: '#ececec' } },
-      tooltip: { callbacks: { label: c => `${c.label}: ₩${fmt(c.raw)} (${(c.raw/platTotal*100).toFixed(1)}%)` } },
-      minMaxLabel: { enabled: false }
+      tooltip: { callbacks: { label: c => `${c.label}: ₩${fmt(c.raw)} (${(c.raw/platTotal*100).toFixed(1)}%)` } }
     }
   }
 });
 
-new Chart(document.getElementById('platformMonthly'), {
+safeChart('platformMonthly', {
   type: 'bar',
   data: {
     labels: D.platform.monthly.labels,
     datasets: [
-      { label: '브랜드쿡', data: D.platform.monthly['브랜드쿡'], backgroundColor: COLORS.orange, stack: 's1', borderRadius:2 },
-      { label: '식자재쿡', data: D.platform.monthly['식자재쿡'], backgroundColor: COLORS.yellow, stack: 's1', borderRadius:2 }
+      { label: '브랜드쿡', data: D.platform.monthly['브랜드쿡'], backgroundColor: COLORS.yellow, stack: 's1', borderRadius: 2 },
+      { label: '식자재쿡', data: D.platform.monthly['식자재쿡'], backgroundColor: COLORS.blue, stack: 's1', borderRadius: 2 }
     ]
   },
   options: {
     maintainAspectRatio: false,
     plugins: {
       legend: { position: 'bottom', labels: { padding: 14, usePointStyle: true, boxWidth: 8, color: '#ececec' } },
-      tooltip: { callbacks: { label: c => `${c.dataset.label}: ₩${fmt(c.raw)}` } },
-      minMaxLabel: { enabled: false }
+      tooltip: { callbacks: { label: c => `${c.dataset.label}: ₩${fmt(c.raw)}` } }
     },
     scales: {
-      y: { stacked: true, beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
-      x: { stacked: true, grid: { display:false } }
+      y: { stacked: true, beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      x: { stacked: true, grid: { display: false } }
     }
   }
 });
@@ -775,43 +843,36 @@ const bM = D.platform.monthly['브랜드쿡'];
 const fM = D.platform.monthly['식자재쿡'];
 const bGrowth = ((bM[2]-bM[0])/bM[0]*100);
 const fGrowth = ((fM[2]-fM[0])/fM[0]*100);
-document.getElementById('insight3').innerHTML = `<strong>브랜드쿡(전속·B2B 직거래) ${(D.platform.total.values[0]/platTotal*100).toFixed(1)}%</strong> vs <strong>식자재쿡(오픈 플랫폼) ${(D.platform.total.values[1]/platTotal*100).toFixed(1)}%</strong>로 브랜드쿡 의존도가 압도적. 1→3월 성장률은 브랜드쿡 <strong>${bGrowth.toFixed(1)}%</strong>, 식자재쿡 <span class="neg">${fGrowth.toFixed(1)}%</span>로 두 채널 모두 정체·역성장. 브랜드쿡은 본질상 KA 매출에 종속되어 신규 프랜차이즈 영입이 없으면 자연 감소가 발생. 식자재쿡은 오픈 마켓플레이스로서 신규 사업자(소상공인) 유입을 통한 성장이 가능하나 13.1% 비중에 머물러 활성화 여지가 큼. <strong>식자재쿡 GMV 확대를 위한 신규 가입 인센티브 + 검색·추천 알고리즘 개선이 단기 매출 회복의 가장 빠른 레버.</strong>`;
+document.getElementById('insight3').innerHTML = `<strong>브랜드쿡(노랑·전속 B2B 직거래) ${(D.platform.total.values[0]/platTotal*100).toFixed(1)}%</strong> vs <strong style="color:#3b82f6">식자재쿡(블루·오픈 플랫폼) ${(D.platform.total.values[1]/platTotal*100).toFixed(1)}%</strong>로 브랜드쿡 의존도가 압도적. 1→3월 성장률은 브랜드쿡 <strong>${bGrowth.toFixed(1)}%</strong>, 식자재쿡 <span class="neg">${fGrowth.toFixed(1)}%</span>로 두 채널 모두 정체·역성장. 브랜드쿡은 본질상 KA 매출에 종속되어 신규 프랜차이즈 영입이 없으면 자연 감소가 발생. 식자재쿡은 오픈 마켓플레이스로서 신규 사업자(소상공인) 유입을 통한 성장이 가능하나 13.1% 비중에 머물러 활성화 여지가 큼. <strong>식자재쿡 GMV 확대를 위한 신규 가입 인센티브 + 검색·추천 알고리즘 개선이 단기 매출 회복의 가장 빠른 레버.</strong>`;
 
-/* ===== Section 4: Choin ===== */
+/* ===== Section 4: Choin donut with % + value labels ===== */
 const choinTotal = D.choin.total.values.reduce((a,b)=>a+b,0);
 const choinIdx = D.choin.total.labels.indexOf('초인');
 const choinShare = (D.choin.total.values[choinIdx]/choinTotal*100);
 document.getElementById('choinHead').innerHTML = `초인 <span class="hl">${choinShare.toFixed(1)}%</span> · 식자재쿡(장한유통) ${(100-choinShare).toFixed(1)}%`;
-new Chart(document.getElementById('choinDonut'), {
+safeChart('choinDonut', {
   type: 'doughnut',
   data: {
     labels: D.choin.total.labels,
-    datasets: [{
-      data: D.choin.total.values,
-      backgroundColor: [COLORS.orange2, COLORS.orange],
-      borderColor: '#0a0a0a',
-      borderWidth: 3,
-      hoverOffset: 8
-    }]
+    datasets: [{ data: D.choin.total.values, backgroundColor: [COLORS.orange, COLORS.orange2], borderColor: '#0a0a0a', borderWidth: 3, hoverOffset: 8 }]
   },
   options: {
-    maintainAspectRatio: false,
-    cutout: '62%',
+    maintainAspectRatio: false, cutout: '55%',
     plugins: {
       legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, boxWidth: 8, color: '#ececec' } },
       tooltip: { callbacks: { label: c => `${c.label}: ₩${fmt(c.raw)} (${(c.raw/choinTotal*100).toFixed(1)}%)` } },
-      minMaxLabel: { enabled: false }
+      doughnutLabel: { enabled: true, showValue: true, valueFormatter: v => kor(v) + '원', minPct: 3 }
     }
   }
 });
 
-new Chart(document.getElementById('choinMonthly'), {
+safeChart('choinMonthly', {
   type: 'line',
   data: {
     labels: D.choin.monthly.labels,
     datasets: [
-      { label: '초인', data: D.choin.monthly['초인'], borderColor: COLORS.orange2, backgroundColor: 'rgba(255,107,53,0.15)', borderWidth: 3, tension: 0.3, pointRadius: 5, pointBackgroundColor: COLORS.orange2, pointBorderColor: '#0a0a0a', pointBorderWidth: 2, fill: true },
-      { label: '식자재쿡(장한유통)', data: D.choin.monthly['식자재쿡(장한유통)'], borderColor: COLORS.orange, backgroundColor: 'rgba(245,158,11,0.1)', borderWidth: 3, tension: 0.3, pointRadius: 5, pointBackgroundColor: COLORS.orange, pointBorderColor: '#0a0a0a', pointBorderWidth: 2, fill: true }
+      { label: '초인', data: D.choin.monthly['초인'], borderColor: COLORS.orange2, backgroundColor: 'rgba(255,107,53,0.18)', borderWidth: 3, tension: 0.35, pointRadius: 5, pointBackgroundColor: COLORS.orange2, pointBorderColor: '#0a0a0a', pointBorderWidth: 2, fill: true },
+      { label: '식자재쿡(장한유통)', data: D.choin.monthly['식자재쿡(장한유통)'], borderColor: COLORS.orange, backgroundColor: 'rgba(245,158,11,0.12)', borderWidth: 3, tension: 0.35, pointRadius: 5, pointBackgroundColor: COLORS.orange, pointBorderColor: '#0a0a0a', pointBorderWidth: 2, fill: true }
     ]
   },
   options: {
@@ -819,11 +880,10 @@ new Chart(document.getElementById('choinMonthly'), {
     interaction: { mode: 'index', intersect: false },
     plugins: {
       legend: { position: 'bottom', labels: { padding: 14, usePointStyle: true, boxWidth: 8, color: '#ececec' } },
-      tooltip: { callbacks: { label: c => `${c.dataset.label}: ₩${fmt(c.raw)}` } },
-      minMaxLabel: { enabled: false }
+      tooltip: { callbacks: { label: c => `${c.dataset.label}: ₩${fmt(c.raw)}` } }
     },
     scales: {
-      y: { beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      y: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
       x: { grid: { display: false } }
     }
   }
@@ -833,129 +893,108 @@ const cM = D.choin.monthly['초인'];
 const ncM = D.choin.monthly['식자재쿡(장한유통)'];
 const choinGrowth = ((cM[2]-cM[0])/cM[0]*100);
 const nonGrowth = ((ncM[2]-ncM[0])/ncM[0]*100);
-document.getElementById('insight4').innerHTML = `<strong>초인 채널 매출 비중 ${choinShare.toFixed(1)}%</strong>이며 1→3월 성장률 <strong>+${choinGrowth.toFixed(1)}%</strong>, 식자재쿡(장한유통) 성장률 <span class="neg">${nonGrowth.toFixed(1)}%</span>로 명확한 <strong>크로스 트렌드</strong> 진행 중. 초인 클러스터(초인유통·푸줏간·유남주·부뜬고·우적·와이제이푸드·고대장·진화 등 8개 브랜드)는 자체 식자재 통합 발주 구조로 단가/충성도 양면에서 안정적인 성장 동력. 식자재쿡(장한유통)의 -8.1% 역성장은 핵심 KA의 자연 감소(매장 폐점, 발주량 축소, 외식 경기 둔화)가 누적된 결과로 추정. <strong>초인 채널의 성장 메커니즘을 분리·복제 가능한 '브랜드 클러스터 운영 모델'로 정립하는 것이 향후 12개월 핵심 과제.</strong>`;
+document.getElementById('insight4').innerHTML = `<strong>초인 채널 매출 비중 ${choinShare.toFixed(1)}%</strong>이며 1→3월 성장률 <strong>+${choinGrowth.toFixed(1)}%</strong>, 식자재쿡(장한유통) 성장률 <span class="neg">${nonGrowth.toFixed(1)}%</span>로 명확한 <strong>크로스 트렌드</strong> 진행 중. 도넛 차트 내부에 비중(%)과 매출액 상시 표시로 직관적 파악 가능. 초인 클러스터(초인유통·푸줏간·유남주·부뜬고·우적·와이제이푸드·고대장·진화 등 8개 브랜드)는 자체 식자재 통합 발주 구조로 안정적 성장 동력. 식자재쿡(장한유통)의 -8.1% 역성장은 핵심 KA의 자연 감소(매장 폐점, 발주량 축소, 외식 경기 둔화)가 누적된 결과. <strong>초인 채널의 성장 메커니즘을 분리·복제 가능한 '브랜드 클러스터 운영 모델'로 정립하는 것이 향후 12개월 핵심 과제.</strong>`;
 
-/* ===== Section 5: TOP 30 by Quantity ===== */
+/* ===== Section 5: TOP 30 Quantity ===== */
 document.getElementById('qtyHead').innerHTML = `1위: <span class="hl">${D.product_qty_top30.labels[0]}</span> · ${fmt(D.product_qty_top30.qty[0])}개`;
-new Chart(document.getElementById('qtyChart'), {
+safeChart('qtyChart', {
   type: 'bar',
   data: {
     labels: D.product_qty_top30.labels,
     datasets: [{
-      label: '판매수량',
-      data: D.product_qty_top30.qty,
+      label: '판매수량', data: D.product_qty_top30.qty,
       backgroundColor: ctx => {
-        const v = ctx.raw;
-        const max = Math.max(...D.product_qty_top30.qty);
+        const v = ctx.raw; const max = Math.max(...D.product_qty_top30.qty);
         const r = v/max;
         if (r > 0.7) return COLORS.yellow;
         if (r > 0.4) return COLORS.orange;
         return 'rgba(245,158,11,0.55)';
       },
-      borderColor: '#0a0a0a',
-      borderWidth: 1,
-      borderRadius: 2
+      borderColor: '#0a0a0a', borderWidth: 1, borderRadius: 2
     }]
   },
   options: {
-    indexAxis: 'y',
-    maintainAspectRatio: false,
+    indexAxis: 'y', maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: c => `수량: ${fmt(c.raw)}개 · 매출: ₩${fmt(D.product_qty_top30.rev[c.dataIndex])}` } },
+      tooltip: { callbacks: { label: c => `수량 ${fmt(c.raw)}개 · 매출 ₩${fmt(D.product_qty_top30.rev[c.dataIndex])}` } },
       minMaxLabel: { enabled: true, formatter: v => fmt(v) + '개' }
     },
     scales: {
-      x: { beginAtZero:true, ticks: { callback: v => fmt(v) }, grid: { color: COLORS.gridSoft } },
-      y: { grid: { display: false }, ticks: { font:{ size:10 } } }
+      x: { beginAtZero: true, ticks: { callback: v => fmt(v) }, grid: { color: COLORS.gridSoft } },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
     }
   }
 });
 
 document.getElementById('insight5').innerHTML = `수량 기준 TOP 30은 <strong>저단가·고회전 식자재</strong>(닭·계란·두부·대파·콩나물·다진마늘 등 신선·기초 식재료)가 압도적. 1위 '<strong>수)삼계2각(반계) 14,884개</strong>'는 매출 3,476만원으로 단가 약 2,300원 — 실제 매출 기여보다는 <strong>거래처 발주 빈도와 충성도를 만들어내는 트래픽 SKU</strong>로 해석. 이 카테고리는 가격 경쟁력과 재고 가용성이 핵심 KSF. 마진은 낮으나 <strong>플랫폼 락인(다른 SKU 함께 발주 유도) 효과</strong>가 결정적. PB '식자재쿡 메뚜기쌀'이 수량 9위지만 매출에서는 1위인 점도 주목.`;
 
-/* ===== Section 6: TOP 30 by Revenue ===== */
+/* ===== Section 6: TOP 30 Revenue ===== */
 document.getElementById('revHead').innerHTML = `1위: <span class="hl">${D.product_rev_top30.labels[0]}</span> · ${kor(D.product_rev_top30.rev[0])}원`;
-new Chart(document.getElementById('revChart'), {
+safeChart('revChart', {
   type: 'bar',
   data: {
     labels: D.product_rev_top30.labels,
     datasets: [{
-      label: '매출',
-      data: D.product_rev_top30.rev,
+      label: '매출', data: D.product_rev_top30.rev,
       backgroundColor: ctx => {
-        const v = ctx.raw;
-        const max = Math.max(...D.product_rev_top30.rev);
+        const v = ctx.raw; const max = Math.max(...D.product_rev_top30.rev);
         const r = v/max;
         if (r > 0.7) return COLORS.yellow;
         if (r > 0.4) return COLORS.orange;
         return 'rgba(245,158,11,0.55)';
       },
-      borderColor: '#0a0a0a',
-      borderWidth: 1,
-      borderRadius: 2
+      borderColor: '#0a0a0a', borderWidth: 1, borderRadius: 2
     }]
   },
   options: {
-    indexAxis: 'y',
-    maintainAspectRatio: false,
+    indexAxis: 'y', maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: c => `매출: ₩${fmt(c.raw)} · 수량: ${fmt(D.product_rev_top30.qty[c.dataIndex])}개` } },
+      tooltip: { callbacks: { label: c => `매출 ₩${fmt(c.raw)} · 수량 ${fmt(D.product_rev_top30.qty[c.dataIndex])}개` } },
       minMaxLabel: { enabled: true, formatter: v => kor(v) }
     },
     scales: {
-      x: { beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
-      y: { grid: { display: false }, ticks: { font:{ size:10 } } }
+      x: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
     }
   }
 });
 
 document.getElementById('insight6').innerHTML = `매출 기준 TOP 30은 <strong>프랜차이즈 전용 SKU + 단가 높은 육류·소스</strong> 중심. 단연 1위는 자체 PB <strong>'식자재쿡 메뚜기쌀 20kg' (2.28억원)</strong> — 단일 상품으로 전체 매출의 약 5%. 이어 김치찜이최고야·국찜·푸줏간·이유있는감자탕·밥풀떼기 전용 SKU가 상위 점유. <strong>(1) PB 라인 확장 → 마진 + 락인, (2) 프랜차이즈 전용 OEM 매출 비중 명확화 → 핵심 자산화, (3) 돼지갈비·삼겹·돈목뼈 등 육류 카테고리의 단가 안정성 확보</strong>가 매출 방어의 3대 축. PB 메뚜기쌀의 성공을 곡물·소스·반찬류로 수평 확장하면 단기간 의미 있는 매출 증분 확보 가능.`;
 
-/* ===== Section 7: Region ===== */
+/* ===== Section 7: Region — donut with % labels ===== */
 const regSiTotal = D.region_si.values.reduce((a,b)=>a+b,0);
 document.getElementById('regionSiHead').innerHTML = `${D.region_si.labels[0]} <span class="hl">${(D.region_si.values[0]/regSiTotal*100).toFixed(1)}%</span> · ${D.region_si.labels[1]} ${(D.region_si.values[1]/regSiTotal*100).toFixed(1)}% · ${D.region_si.labels[2]} ${(D.region_si.values[2]/regSiTotal*100).toFixed(1)}%`;
 
-// Aggregate "기타" for donut
 const regTopN = 5;
 const regSiTop = D.region_si.labels.slice(0, regTopN);
 const regSiTopVals = D.region_si.values.slice(0, regTopN);
 const regSiOther = D.region_si.values.slice(regTopN).reduce((a,b)=>a+b,0);
 const donutLabels = [...regSiTop, '기타'];
 const donutVals = [...regSiTopVals, regSiOther];
-const donutColors = [COLORS.orange, COLORS.orange2, COLORS.yellow, COLORS.amber, '#fcd34d', '#666'];
+const donutColors = [COLORS.orange, COLORS.orange2, COLORS.yellow, COLORS.amber, '#fcd34d', '#666666'];
 
-new Chart(document.getElementById('regionDonut'), {
+safeChart('regionDonut', {
   type: 'doughnut',
-  data: {
-    labels: donutLabels,
-    datasets: [{
-      data: donutVals,
-      backgroundColor: donutColors,
-      borderColor: '#0a0a0a',
-      borderWidth: 3,
-      hoverOffset: 8
-    }]
-  },
+  data: { labels: donutLabels, datasets: [{ data: donutVals, backgroundColor: donutColors, borderColor: '#0a0a0a', borderWidth: 3, hoverOffset: 8 }] },
   options: {
-    maintainAspectRatio: false,
-    cutout: '60%',
+    maintainAspectRatio: false, cutout: '55%',
     plugins: {
-      legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, boxWidth: 8, color: '#ececec', font:{ size:11 } } },
+      legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, boxWidth: 8, color: '#ececec', font: { size: 11 } } },
       tooltip: { callbacks: { label: c => `${c.label}: ₩${fmt(c.raw)} (${(c.raw/regSiTotal*100).toFixed(1)}%)` } },
-      minMaxLabel: { enabled: false }
+      doughnutLabel: { enabled: true, showValue: false, minPct: 3 }
     }
   }
 });
 
-new Chart(document.getElementById('regionSiChart'), {
+safeChart('regionSiChart', {
   type: 'bar',
   data: {
     labels: D.region_si.labels.slice(0,10),
     datasets: [{
       data: D.region_si.values.slice(0,10),
-      backgroundColor: D.region_si.labels.slice(0,10).map((l,i)=>{
+      backgroundColor: D.region_si.labels.slice(0,10).map(l => {
         if (l==='부산') return COLORS.yellow;
         if (l==='경남') return COLORS.orange;
         if (l==='울산') return COLORS.orange2;
@@ -972,13 +1011,13 @@ new Chart(document.getElementById('regionSiChart'), {
       minMaxLabel: { enabled: true, formatter: v => kor(v) }
     },
     scales: {
-      y: { beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      y: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
       x: { grid: { display: false } }
     }
   }
 });
 
-new Chart(document.getElementById('regionFullChart'), {
+safeChart('regionFullChart', {
   type: 'bar',
   data: {
     labels: D.region_top20.labels,
@@ -994,16 +1033,15 @@ new Chart(document.getElementById('regionFullChart'), {
     }]
   },
   options: {
-    indexAxis: 'y',
-    maintainAspectRatio: false,
+    indexAxis: 'y', maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: { callbacks: { label: c => `₩${fmt(c.raw)} (${(c.raw/regSiTotal*100).toFixed(1)}%)` } },
       minMaxLabel: { enabled: true, formatter: v => kor(v) }
     },
     scales: {
-      x: { beginAtZero:true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
-      y: { grid: { display: false }, ticks: { font:{ size:10 } } }
+      x: { beginAtZero: true, ticks: { callback: v => kor(v) }, grid: { color: COLORS.gridSoft } },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
     }
   }
 });
@@ -1015,7 +1053,7 @@ document.getElementById('regionGrid').innerHTML = grid.map(g=>
   `<div class="region-cell"><div class="region-name">${g.name}</div><div class="region-val">₩ ${kor(g.val)}</div><div class="region-share">${g.share.toFixed(2)}% of TOTAL</div></div>`
 ).join('');
 
-document.getElementById('insight7').innerHTML = `매출의 <strong>${D.busan_share.toFixed(1)}%가 부산 단일 광역시</strong>, 부산·경남·울산 합계 <strong>${D.busan_gn_uls_share.toFixed(1)}%</strong>로 동남권 의존도가 절대적. 시·군·구 단위 1위는 <strong>부산 해운대구(3.77억, 8.2%)</strong>, 이어 울산 남구(3.30억) → 부산진구 → 동래구 순. 경남 창원·김해, 부산 사하·강서 등도 1억 이상의 견조한 매출. 75개 시·군·구에 매출 발생하나 <strong>대구·서울·수도권은 한자리 % 비중</strong>으로 사실상 미진입 시장. 본격적 외형 성장에는 <strong>(1) 수도권 권역 거점 영업·물류 진출 (2) 대구·울산 인접권 확장 (3) 비주력 지역의 식자재쿡 오픈 채널 활용</strong>의 3단계 지역 다각화 로드맵이 필수.`;
+document.getElementById('insight7').innerHTML = `매출의 <strong>${D.busan_share.toFixed(1)}%가 부산 단일 광역시</strong>, 부산·경남·울산 합계 <strong>${D.busan_gn_uls_share.toFixed(1)}%</strong>로 동남권 의존도가 절대적. 도넛 차트 내부에 시·도별 비중(%) 상시 표시로 한눈에 파악 가능. 시·군·구 단위 1위는 <strong>부산 해운대구(3.77억, 8.2%)</strong>, 이어 울산 남구(3.30억) → 부산진구 → 동래구 순. 경남 창원·김해, 부산 사하·강서 등도 1억 이상의 견조한 매출. 75개 시·군·구에 매출 발생하나 <strong>대구·서울·수도권은 한자리 % 비중</strong>으로 사실상 미진입 시장. <strong>(1) 수도권 권역 거점 영업·물류 진출 (2) 대구·울산 인접권 확장 (3) 비주력 지역의 식자재쿡 오픈 채널 활용</strong>의 3단계 지역 다각화 로드맵이 필수.`;
 
 </script>
 </body>
